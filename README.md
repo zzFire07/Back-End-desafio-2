@@ -45,3 +45,12 @@ pgAdmin es un software complementario de PostgreSQL, nos sirve para administrar 
 
 1. Ingresamos a **``https://www.pgadmin.org/download/``**, seleccionamos nuestro sistema operativo y descargamos la versión **7.4**.
 2. Ejecutamos el instalador con permisos de administrador y seguimos los pasos.
+
+[Node.js]: https://img.shields.io/badge/Node.js-2fba2f?style=for-the-badge&logo=node.js&logoColor=white
+[Node-url]: https://nodejs.org/en/blog/release/v17.9.1
+[PostgreSQL.com]:https://img.shields.io/badge/PostgreSQL-4169E1.svg?style=for-the-badge&logo=PostgreSQL&logoColor=white
+[Postgres-url]: https://www.postgresql.org/
+[Sequelize.js]: https://img.shields.io/badge/sequelize-323330?style=for-the-badge&logo=sequelize&logoColor=blue
+[Sequelize-url]: https://sequelize.org/
+[Postman.com]: https://img.shields.io/badge/Postman-FF6C37.svg?style=for-the-badge&logo=Postman&logoColor=white
+[Postman-url]: https://www.postman.com/downloads/
