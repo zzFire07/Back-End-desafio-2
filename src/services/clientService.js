@@ -36,7 +36,7 @@ async function getAllClients() {
       });
       return allClients;
     } catch (error) {
-      throw new Error('Error al obtener el tipo de bebida desde la base de datos');
+      throw new Error('Error al obtener el cliente desde la base de datos');
     }
   }
 

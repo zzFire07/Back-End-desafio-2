@@ -1,9 +1,9 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../config/database.js');
 
-class clientModel extends Model {}
+class ClientModel extends Model {}
 
-clientModel.init(
+ClientModel.init(
   {
     // Atributos de cliente (el id lo genera Postgres)
     nombre: {
