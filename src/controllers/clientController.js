@@ -8,7 +8,7 @@ async function getAllClients(req, res) {
       return res.status(200).json(clients);
     }
   } catch (error) {
-    return res.status(404).json({ message: 'Error al obtener los Clientes', error: error.message });
+      return res.status(404).json({ message: 'Error al obtener los Clientes', error: error.message });
   }
 }
 
@@ -23,7 +23,7 @@ async function getByIdClient(req, res) {
       return res.status(200).json(client);
     }
   } catch (error) {
-    return res.status(404).json({ message: 'Error al obtener el Cliente', error: error.message });
+      return res.status(404).json({ message: 'Error al obtener el Cliente', error: error.message });
   }
 }
 
@@ -32,7 +32,7 @@ async function createClient(req, res) {
     try {
       const {nombre} = req.body;
   
-      // Llama al servicio para crear el tipo de bebida
+      // Llama al servicio para crear el cliente
       const newClient = await ClientService.createClient({
         nombre,
       });
