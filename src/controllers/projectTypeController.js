@@ -5,7 +5,7 @@ async function getAllProjectType(req, res) {
 
     try {
         const allProjectType = await projectTypeService.getAllProjectType();
-        if (allProjectType) {
+        if (allProjectType > 0) {
             return res.status(200).json(allProjectType);
         } else {
             return res.status(204).json({ message: 'No se encontraron tipos de proyecto en el sistema' });
