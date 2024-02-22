@@ -1,7 +1,7 @@
 const { or } = require('sequelize');
 const IndustryModel = require('../models/industryModel.js');
 
-async function findAll() {
+async function getAll() {
     try {
         const allIndustries = await IndustryModel.findAll({
             order: [['id', 'ASC']], 
@@ -14,5 +14,5 @@ async function findAll() {
 
 
 module.exports = {
-    findAll,
+    getAll
 };

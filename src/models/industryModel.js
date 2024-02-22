@@ -5,7 +5,7 @@ class IndustryModel extends Model { }
 
 IndustryModel.init(
     {
-        industry: {
+        name: {
             type: DataTypes.STRING,
         },
     },

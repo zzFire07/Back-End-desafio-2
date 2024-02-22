@@ -1,8 +1,9 @@
 const IndustryService = require('../services/industryService.js');
 
-async function findAll(req, res) {
+async function getAll(req, res) {
     try {
-        const allIndustries = await IndustryService.findAll();
+
+        const allIndustries = await IndustryService.getAll();
         if (allIndustries) {
             return res.status(200).json(allIndustries);
         } else {
@@ -14,5 +15,5 @@ async function findAll(req, res) {
 }
 
 module.exports = {
-    findAll
+    getAll
 };
