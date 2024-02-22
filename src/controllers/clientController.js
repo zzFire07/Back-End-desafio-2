@@ -1,9 +1,9 @@
 const ClientService = require('../services/clientService');
 
 // Controlador para obtener todos los clientes
-async function findAllClients(req, res) {
+async function getAllClients(req, res) {
   try {
-      const clients = await ClientService.getClients();
+      const clients = await ClientService.getAllClients();
     if(clients){
       return res.status(200).json(clients);
     }
@@ -14,11 +14,11 @@ async function findAllClients(req, res) {
 
 
 // Controlador para obtener un cliente por su ID
-async function findByIdClient(req, res) {
+async function getByIdClient(req, res) {
   const clientId = req.params.clientId;
 
   try {
-    const client = await ClientService.getClientById(clientId);
+    const client = await ClientService.getByIdClient(clientId);
     if (client) {
       return res.status(200).json(client);
     }
@@ -46,7 +46,7 @@ async function createClient(req, res) {
   }
 
 module.exports = {
-  findByIdClient,
-  findAllClients,
+  getByIdClient,
+  getAllClients,
   createClient,
 };
