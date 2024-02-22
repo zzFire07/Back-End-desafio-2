@@ -7,11 +7,8 @@ async function findAllClients(req, res) {
     if(clients){
       return res.status(200).json(clients);
     }
-    else{
-      return res.status(404).json({ message: 'No hay Clientes' });
-    }
   } catch (error) {
-    return res.status(500).json({ message: 'Error al obtener los Clientes', error: error.message });
+    return res.status(404).json({ message: 'Error al obtener los Clientes', error: error.message });
   }
 }
 
@@ -24,25 +21,9 @@ async function findByIdClient(req, res) {
     const client = await ClientService.getClientById(clientId);
     if (client) {
       return res.status(200).json(client);
-    } else {
-      return res.status(404).json({ message: 'Cliente no encontrado' });
     }
   } catch (error) {
-    return res.status(500).json({ message: 'Error al obtener el Cliente', error: error.message });
-  }
-}
-
-// Controlador para crear un cliente
-async function putClient(req, res) {
-  const clientData = req.body;
-
-  try {
-    const client = await ClientService.putClient(clientData);
-    if(client){
-      return res.status(201).json(client);
-    }
-  } catch (error) {
-    return res.status(500).json({ message: 'Error al crear el Cliente', error: error.message });
+    return res.status(404).json({ message: 'Error al obtener el Cliente', error: error.message });
   }
 }
 
@@ -57,12 +38,10 @@ async function createClient(req, res) {
       });
   
       if (newClient) {
-        return res.status(200).json(newClient);
-      } else {
-        return res.status(404).json({ message: 'Ya existe un cliente con esos parámetros' });
+        return res.status(201).json(newClient);
       }
     } catch (error) {
-      res.status(500).json({ error: 'Error al crear el cliente', error: error.message });
+      res.status(400).json({ error: 'Error al crear el cliente', error: error.message });
     }
   }
 
