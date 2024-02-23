@@ -3,7 +3,7 @@ const ContactService = require("../services/contactService");
 // Controlador para obtener todos los contactos
 async function findAllContacts(req, res) {
   try {
-    const contacts = await ContactService.getContacts();
+    const contacts = await ContactService.getAllContacts();
     if (contacts) {
       return res.status(200).json(contacts);
     }
@@ -33,13 +33,13 @@ async function findByIdContact(req, res) {
 // Controlador para crear un contacto
 async function createContact(req, res) {
   try {
-    const { nombre } = req.body;
-    const { apellido } = req.body;
+    const { name } = req.body;
+    const { lastname } = req.body;
     const { email } = req.body;
 
     const newContact = await ContactService.createContact({
-      nombre,
-      apellido,
+      name,
+      lastname,
       email,
     });
 
