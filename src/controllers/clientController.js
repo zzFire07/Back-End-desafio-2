@@ -4,8 +4,10 @@ const ClientService = require('../services/clientService');
 async function getAllClients(req, res) {
   try {
       const clients = await ClientService.getAllClients();
-    if(clients){
+    if(clients.length > 0){
       return res.status(200).json(clients);
+    } else {
+      return res.status(204).json({ message: 'No hay Clientes' });
     }
   } catch (error) {
       return res.status(404).json({ message: 'Error al obtener los Clientes', error: error.message });
@@ -17,12 +19,12 @@ async function getAllClients(req, res) {
 async function getByIdClient(req, res) {
   const clientId = req.params.clientId;
 
-  if (clientId == 0) return res.status(400).json({ message: 'El ID del cliente no puede ser 0' });
-
   try {
     const client = await ClientService.getByIdClient(clientId);
     if (client) {
       return res.status(200).json(client);
+    } else {
+      return res.status(204).json({ message: 'No hay Clientes' });
     }
   } catch (error) {
       return res.status(404).json({ message: 'Error al obtener el Cliente', error: error.message });
