@@ -4,13 +4,13 @@ const ContactService = require("../services/contactService");
 async function findAllContacts(req, res) {
   try {
     const contacts = await ContactService.getAllContacts();
-    if (contacts) {
-      return res.status(200).json(contacts);
+    if (contacts.length > 0) {
+        return res.status(200).json(contacts);
+    } else {
+        return res.status(204).json({ message: 'No se encontraron contactos en el sistema' });
     }
   } catch (error) {
-    return res
-      .status(404)
-      .json({ message: "Error al obtener los contactos", error: error.message });
+    return res.status(500).json({ message: 'Error al obtener los contactos', error: error.message });
   }
 }
 
