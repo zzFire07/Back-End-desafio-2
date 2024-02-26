@@ -5,13 +5,16 @@ const { Sequelize } = require("sequelize");
 
 // Configura los datos de conexión a la base de datos PostgreSQL
 const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASS,
+  "postgres", "postgres", "admin",
   {
-    host: process.env.DB_HOST, // Cambia esto si tu base de datos está en un servidor remoto
+    host: "db", // Cambiado a nombre del servicio
     dialect: "postgres", // Indica que estamos utilizando PostgreSQL
-    logging: false, // Desactiva los logs de Sequelize
+    pool: {
+      max: 9,
+      min: 0,
+      idle: 10000
+    },  
+    port: '5432' // Puerto por defecto de PostgreSQL en el contenedor
   }
 );
 
