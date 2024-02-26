@@ -5,7 +5,7 @@ const OfferingService = require('../services/offeringService.js');
 async function getAll(req, res) {
   try {
     const offerings = await OfferingService.getAll(); 
-    if (offerings) {
+    if (offerings.length > 0) {
       return res.status(200).json({ offerings: offerings, message: 'La lista de offerings ha sido obtenida correctamente.' });
     } else {
       return res.status(204).json({ message: 'La solicitud se ha completado con éxito pero no hay offerings en el sistema' });
