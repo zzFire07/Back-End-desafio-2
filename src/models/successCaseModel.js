@@ -1,3 +1,4 @@
+const Offering = require('./offeringModel');
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../config/database.js');
 
@@ -28,7 +29,7 @@ SuccessCaseModel.init(
       type: DataTypes.INTEGER,
     },
     offering: {
-      type: DataTypes.INTEGER,
+      type: Offering,
     },
     teamSize: {
       type: DataTypes.INTEGER,
@@ -36,12 +37,11 @@ SuccessCaseModel.init(
   },
   {
     sequelize,
-    modelName: 'FoodType', // Nombre del modelo
-    tableName: 'foodType', // Nombre de la tabla en la base de datos
+    modelName: 'SuccessCase', // Nombre del modelo
+    tableName: 'success_case', // Nombre de la tabla en la base de datos
   }
 );
 
 
 
 module.exports = SuccessCaseModel;
-
