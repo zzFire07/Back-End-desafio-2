@@ -1,4 +1,13 @@
+const Client = require('./clientModel');
+//const Industry = require('./industryModel');
+const ProjectType = require('./projectTypeModel');
+const Contact = require('./contactModel');
 const Offering = require('./offeringModel');
+const CaseDetails = require('./caseDetailsModel');
+const Technologies = require('./technologiesModel');
+const Improvements = require('./improvementsModel');
+const Challenges = require('./challengesModel');
+
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../config/database.js');
 
@@ -11,13 +20,13 @@ SuccessCaseModel.init(
       type: DataTypes.STRING,
     },
     client: {
-      type: DataTypes.INTEGER,
+      type: Client,
     },
     industry: {
-      type: DataTypes.INTEGER,
+      type: Industry,
     },
     projectType: {
-      type: DataTypes.INTEGER,
+      type: ProjectType,
     },
     startDate: {
       type: DataTypes.DATE,
@@ -26,7 +35,7 @@ SuccessCaseModel.init(
       type: DataTypes.DATE,
     },
     contact: {
-      type: DataTypes.INTEGER,
+      type: Contact,
     },
     offering: {
       type: Offering,
@@ -34,10 +43,18 @@ SuccessCaseModel.init(
     teamSize: {
       type: DataTypes.INTEGER,
     },
-
     caseDetails: {
       type: CaseDetails,
-    }
+    },
+    technologies: {
+      type: Technologies,
+    },
+    improvements: {
+      type: Improvements,
+    },
+    challenges: {
+      type: Challenges,
+    },
   },
   {
     sequelize,

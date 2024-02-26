@@ -1,11 +1,11 @@
 const {DataTypes, Model} = require('sequelize');
 const sequelize = require('../config/database');
 
-class CaseDetailsModel extends Model {}
+class ChallengesModel extends Model {}
 
-CaseDetailsModel.init(
+ChallengesModel.init(
   {
-    // Atributos del Detalle (El id está dado por Postgre)
+    // Atributos del Desafío (El id está dado por Postgre)
     image: {
       type: DataTypes.STRING,
     },
@@ -18,9 +18,9 @@ CaseDetailsModel.init(
   },
   {
     sequelize,
-    modelName: 'CaseDetails', // Nombre del modelo
-    tableName: 'case_details', // Nombre de la tabla en la base de datos
+    modelName: 'Challenges', // Nombre del modelo
+    tableName: 'challenges', // Nombre de la tabla en la base de datos
   }
 );
 
-module.exports = CaseDetailsModel;
+module.exports = ChallengesModel;
