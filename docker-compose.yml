@@ -12,28 +12,28 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-    # networks:
-    #   - examplenetwork
+    networks:
+      - examplenetwork
 
   db:
     container_name: db
     image: postgres
     ports:
       - "5434:5432"
-    # networks:
-    #   - examplenetwork
-    # volumes:
-    #   - postgresql:/var/lib/postgresql
-    #   - postgresql_data:/var/lib/postgresql/data
+    networks:
+      - examplenetwork
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=admin 
 
-# networks:
-#   examplenetwork: 
-#     driver: bridge
+networks:
+  examplenetwork: 
+    driver: bridge
 
-# volumes:
-#   postgresql:
-#   postgresql_data:
+volumes:
+  postgresql:
+  postgresql_data:
