@@ -17,6 +17,8 @@ async function getAllClients(req, res) {
 async function getByIdClient(req, res) {
   const clientId = req.params.clientId;
 
+  if (clientId == 0) return res.status(400).json({ message: 'El ID del cliente no puede ser 0' });
+  
   try {
     const client = await ClientService.getByIdClient(clientId);
     if (client) {
@@ -30,11 +32,12 @@ async function getByIdClient(req, res) {
 // Controlador para crear un cliente
 async function createClient(req, res) {
     try {
-      const {nombre} = req.body;
+      console.log(req.body);
+      const {name, id} = req.body;
   
       // Llama al servicio para crear el cliente
       const newClient = await ClientService.createClient({
-        nombre,
+        id, name
       });
   
       if (newClient) {

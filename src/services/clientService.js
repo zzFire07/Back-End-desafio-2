@@ -4,16 +4,16 @@ const ClientModel = require('../models/clientModel.js');
 // Servicio para crear un cliente
 async function createClient(data) {
   try {
-    const { nombre } = data;
+    const { id, name } = data;
 
     // Crea el cliente en la base de datos utilizando el modelo
     const newClient = await ClientModel.create({
-      nombre,
+      id, name
     });
 
     return newClient;
   } catch (error) {
-    throw new Error('Error al crear el cliente desde el JSON');
+    throw new Error(error);
   }
 }
 

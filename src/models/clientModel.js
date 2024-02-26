@@ -9,6 +9,10 @@ ClientModel.init(
     name: {
       type: DataTypes.STRING,
     },
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
   },
   {
     sequelize,
