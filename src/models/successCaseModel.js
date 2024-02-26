@@ -34,6 +34,10 @@ SuccessCaseModel.init(
     teamSize: {
       type: DataTypes.INTEGER,
     },
+
+    caseDetails: {
+      type: CaseDetails,
+    }
   },
   {
     sequelize,
