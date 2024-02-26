@@ -18,6 +18,7 @@ app.use(express.json());
 //Routes
 app.use(require('./routes/offeringRoutes.js'));
 app.use(require('./routes/projectTypeRoutes.js'));
+app.use(require('/routes(contactRoutes.js'));
 
 //Iniciando el servidor
 app.listen(app.get('port'), () => {
