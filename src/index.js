@@ -17,10 +17,6 @@ app.use(require('./routes/index')); */
 
 swagger(app);
 
-app.get("/", () => {
-  return "Hello World";
-});
-
 //Iniciando el servidor
 app.listen(app.get("port"), () => {
   console.log(`Server listening on port ${app.get("port")}`);
