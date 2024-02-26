@@ -15,7 +15,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
-//Routes
+///Routes
+app.use(require('./routes/clientRoutes.js')); 
 app.use(require('./routes/offeringRoutes.js'));
 app.use(require('./routes/projectTypeRoutes.js'));
 app.use(require('/routes(contactRoutes.js'));
