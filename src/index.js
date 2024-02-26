@@ -13,8 +13,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
+<<<<<<< HEAD
 ///Routes
 app.use(require('./routes/clientRoutes.js')); 
+=======
+//Routes
+app.use(require('./routes/offeringRoutes.js'));
+>>>>>>> 79068b2237455863f6d8afbd06d6ab813f1428f5
 
 //Iniciando el servidor
 app.listen(app.get('port'), () => {
