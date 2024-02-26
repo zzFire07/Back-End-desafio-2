@@ -16,6 +16,7 @@ app.use(express.json());
 
 
 //Routes
+app.use(require('./routes/offeringRoutes.js'));
 app.use(require('./routes/projectTypeRoutes.js'));
 
 //Iniciando el servidor
