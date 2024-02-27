@@ -8,7 +8,7 @@ ContactModel.init(
         name: {
             type: DataTypes.STRING,
         },
-        lastname: {
+        surName: {
             type: DataTypes.STRING,
         },
         email: {

@@ -1,17 +1,17 @@
 CREATE TABLE project_type (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255)
 );
 
-INSERT INTO project_type (id, name)
+INSERT INTO project_type (name)
 VALUES
-(1, 'Mobile Development'),
-(2, 'Web Development'),
-(3, 'Software Development'),
-(4, 'Development'),
-(5, 'Refactory'),
-(6, 'Migration'),
-(7, 'Integration'),
-(8, 'Networking'),
-(9, 'Database Management'),
-(10, 'Emergency Recovery');
+('Mobile Development'),
+('Web Development'),
+('Software Development'),
+('Development'),
+('Refactory'),
+('Migration'),
+('Integration'),
+('Networking'),
+('Database Management'),
+('Emergency Recovery');
