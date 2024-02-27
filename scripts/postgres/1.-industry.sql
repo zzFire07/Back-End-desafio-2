@@ -1,17 +1,17 @@
 CREATE TABLE industry (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255)
 );
 
-INSERT INTO industry (id, name)
+INSERT INTO industry (name)
 VALUES
-(1, 'Retail "Superstores"'),
-(2, 'Banking'),
-(3, 'Healthcare'),
-(4, 'Entretainment'),
-(5, 'Education'),
-(6, 'Pharmaceutical'),
-(7, 'Oil & Gas'),
-(8, 'Green Energys'),
-(9, 'Minery'),
-(10, 'VideoGames');
+('Retail "Superstores"'),
+('Banking'),
+('Healthcare'),
+('Entretainment'),
+('Education'),
+('Pharmaceutical'),
+('Oil & Gas'),
+('Green Energys'),
+('Minery'),
+('VideoGames');
