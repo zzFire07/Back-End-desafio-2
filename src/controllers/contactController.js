@@ -34,12 +34,12 @@ async function findByIdContact(req, res) {
 async function createContact(req, res) {
   try {
     const { name } = req.body;
-    const { lastname } = req.body;
+    const { surName } = req.body;
     const { email } = req.body;
 
     const newContact = await ContactService.createContact({
       name,
-      lastname,
+      surName,
       email,
     });
 

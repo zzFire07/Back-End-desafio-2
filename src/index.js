@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require ('express');
 const app = express();
 const morgan = require('morgan');
 const cors = require('cors');
@@ -7,22 +7,23 @@ const cors = require('cors');
 //Configuraciones
 app.set('port', process.env.PORT || 3000);
 app.set('json spaces', 2)
-
+ 
 //Middleware
 app.use(morgan('dev'));
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+ 
 
-
-///Routes
+//Routes
 app.use(require('./routes/clientRoutes.js')); 
 app.use(require('./routes/offeringRoutes.js'));
 app.use(require('./routes/projectTypeRoutes.js'));
-app.use(require('/routes(contactRoutes.js'));
+app.use(require('./routes/contactRoutes.js'));
+app.use(require('./routes/industryRoutes.js')); 
+
 
 //Iniciando el servidor
 app.listen(app.get('port'), () => {
-
     console.log(`Server listening on port ${app.get('port')}`);
 });

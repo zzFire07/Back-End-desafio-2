@@ -6,7 +6,7 @@ async function getAllContacts() {
         const contact = await ContactModel.findAll();
         return contact;
     } catch (error) {
-        throw new Error('Error al obtener el contacto desde la base de datos');
+        throw error;
     }
 }
 
