@@ -28,7 +28,11 @@ const sequelize = new Sequelize('postgres', 'postgres', 'admin', {
 })();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = sequelize;
 =======
 module.exports = sequelize;
 >>>>>>> 79068b2237455863f6d8afbd06d6ab813f1428f5
+=======
+module.exports = sequelize;
+>>>>>>> b875e79f9143d8cfa54b09b59462cd71b85a2c7d
