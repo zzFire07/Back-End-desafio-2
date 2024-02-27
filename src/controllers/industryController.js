@@ -4,7 +4,8 @@ async function getAll(req, res) {
     try {
 
         const allIndustries = await IndustryService.getAll();
-        if (allIndustries) {
+        
+        if (allIndustries.length > 0) {
             return res.status(200).json(allIndustries);
         } else {
             return res.status(204).json({ message: 'No se encontraron industrias en el sistema.' });
