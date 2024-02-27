@@ -9,7 +9,7 @@ ClientModel.init(
     name: {
       type: DataTypes.STRING,
     },
-    surName: {
+    surname: {
       type: DataTypes.STRING,
     },
     email: {
