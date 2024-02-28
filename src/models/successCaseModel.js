@@ -1,17 +1,17 @@
-const Client = require('./clientModel');
-const Industry = require('./industryModel');
-const ProjectType = require('./projectTypeModel');
-const Contact = require('./contactModel');
-const Offering = require('./offeringModel');
-const CaseDetails = require('./caseDetailsModel');
-const Technologies = require('./technologiesModel');
-const Improvements = require('./improvementsModel');
-const Challenges = require('./challengesModel');
+const ClientModel = require('./clientModel.js');
+const IndustryModel = require('./industryModel.js');
+const ProjectTypeModel = require('./projectTypeModel.js');
+const ContactModel = require('./contactModel.js');
+const OfferingModel = require('./offeringModel.js');
+const CaseDetailsModel = require('./caseDetailsModel.js');
+const TechnologiesModel = require('./technologiesModel.js');
+const ImprovementsModel = require('./improvementsModel.js');
+const ChallengesModel = require('./challengesModel.js');
 
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../config/database.js');
 
-class SuccessCaseModel extends Model {}
+class SuccessCaseModel extends Model {};
 
 SuccessCaseModel.init(
   {
@@ -20,13 +20,27 @@ SuccessCaseModel.init(
       type: DataTypes.STRING,
     },
     client_id: {
-      type: Client,
+      type: DataTypes.INTEGER,
+      references: {
+        // This is a reference to Client
+        model: ClientModel,
+        // This is the column name of the referenced model
+        key: 'id',
+      },
     },
     industry_id: {
-      type: Industry,
+      type: DataTypes.INTEGER,
+      references: {
+        model: IndustryModel,
+        key: 'id',
+      },
     },
     projectType_id: {
-      type: ProjectType,
+      type: DataTypes.INTEGER,
+      references: {
+        model: ProjectTypeModel,
+        key: 'id',
+      },
     },
     startDate: {
       type: DataTypes.DATE,
@@ -35,25 +49,49 @@ SuccessCaseModel.init(
       type: DataTypes.DATE,
     },
     contact_id: {
-      type: Contact,
+      type: DataTypes.INTEGER,
+      references: {
+        model: ContactModel,
+        key: 'id',
+      },
     },
     offering_id: {
-      type: Offering,
+      type: DataTypes.INTEGER,
+      references: {
+        model: OfferingModel,
+        key: 'id',
+      },
     },
     teamSize: {
       type: DataTypes.INTEGER,
     },
     caseDetails_id: {
-      type: CaseDetails,
+      type: DataTypes.INTEGER,
+      references: {
+        model: CaseDetailsModel,
+        key: 'id',
+      },
     },
     technologies_id: {
-      type: Technologies,
+      type: DataTypes.INTEGER,
+      references: {
+        model: TechnologiesModel,
+        key: 'id',
+      },
     },
     improvements_id: {
-      type: Improvements,
+      type: DataTypes.INTEGER,
+      references: {
+        model: ImprovementsModel,
+        key: 'id',
+      },
     },
     challenges_id: {
-      type: Challenges,
+      type: DataTypes.INTEGER,
+      references: {
+        model: ChallengesModel,
+        key: 'id',
+      },
     },
   },
   {
@@ -63,6 +101,14 @@ SuccessCaseModel.init(
   }
 );
 
-
+SuccessCaseModel.belongsTo(ClientModel, { foreignKey: 'client_id', as: 'client' });
+SuccessCaseModel.belongsTo(IndustryModel, { foreignKey: 'industry_id', as: 'industry' });
+SuccessCaseModel.belongsTo(ProjectTypeModel, { foreignKey: 'projectType_id', as: 'projectType' });
+SuccessCaseModel.belongsTo(ContactModel, { foreignKey: 'contact_id', as: 'contact' });
+SuccessCaseModel.belongsTo(OfferingModel, { foreignKey: 'offering_id', as: 'offering' });
+SuccessCaseModel.belongsTo(CaseDetailsModel, { foreignKey: 'caseDetails_id', as: 'caseDetails' });
+SuccessCaseModel.belongsTo(TechnologiesModel, { foreignKey: 'technologies_id', as: 'technologies' });
+SuccessCaseModel.belongsTo(ImprovementsModel, { foreignKey: 'improvements_id', as: 'improvements' });
+SuccessCaseModel.belongsTo(ChallengesModel, { foreignKey: 'challenges_id', as: 'challenges' });
 
 module.exports = SuccessCaseModel;
