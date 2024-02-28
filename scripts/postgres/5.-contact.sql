@@ -1,10 +1,10 @@
 CREATE TABLE contact (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    surName VARCHAR(255),
+    sur_name VARCHAR(255),
 	email VARCHAR(255)
 );
-INSERT INTO contact (name, surName, email)
+INSERT INTO contact (name, sur_name, email)
 VALUES
 ('German', 'A', 'GermanA@gmail.com'),
 ('Nicolas', 'B', 'NicolasB@gmail.com'),

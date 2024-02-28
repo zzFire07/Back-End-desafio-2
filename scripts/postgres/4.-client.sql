@@ -1,11 +1,11 @@
 CREATE TABLE client (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-	surName VARCHAR(255),
+	sur_name VARCHAR(255),
 	email VARCHAR(255)
 );
 
-INSERT INTO client (name, surName, email)
+INSERT INTO client (name, sur_name, email)
 VALUES
 ('Franco', 'A', 'FrancoA@gmail.com'),
 ('Bruno', 'B', 'BrunoB@gmail.com'),
