@@ -22,6 +22,8 @@ async function findByIdContact(req, res) {
     const contact = await ContactService.getContactById(contactId);
     if (contact) {
       return res.status(200).json(contact);
+    } else {
+      return res.status(204).json({ message: "No se encontró el contacto" });
     }
   } catch (error) {
     return res
