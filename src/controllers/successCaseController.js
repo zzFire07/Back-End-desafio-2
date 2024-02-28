@@ -15,11 +15,11 @@ async function getByFilter(req, res) {
       return res.status(200).json(cases);
     } else {
       return res.status(204).json({ message: 'La solicitud se ha completado con éxito pero no hay casos de éxito en el sistema.' });
-    }
+    };
   } catch (error) {
     return res.status(500).json({ message: 'Error al obtener los casos de éxito.', error: error.message });
-  }
-}
+  };
+};
 
 
 // Controller para obtener un caso por Id.

@@ -1,5 +1,5 @@
 const Client = require('./clientModel');
-//const Industry = require('./industryModel');
+const Industry = require('./industryModel');
 const ProjectType = require('./projectTypeModel');
 const Contact = require('./contactModel');
 const Offering = require('./offeringModel');
@@ -19,13 +19,13 @@ SuccessCaseModel.init(
     title: {
       type: DataTypes.STRING,
     },
-    client: {
+    client_id: {
       type: Client,
     },
-    industry: {
+    industry_id: {
       type: Industry,
     },
-    projectType: {
+    projectType_id: {
       type: ProjectType,
     },
     startDate: {
@@ -34,25 +34,25 @@ SuccessCaseModel.init(
     finishDate: {
       type: DataTypes.DATE,
     },
-    contact: {
+    contact_id: {
       type: Contact,
     },
-    offering: {
+    offering_id: {
       type: Offering,
     },
     teamSize: {
       type: DataTypes.INTEGER,
     },
-    caseDetails: {
+    caseDetails_id: {
       type: CaseDetails,
     },
-    technologies: {
+    technologies_id: {
       type: Technologies,
     },
-    improvements: {
+    improvements_id: {
       type: Improvements,
     },
-    challenges: {
+    challenges_id: {
       type: Challenges,
     },
   },

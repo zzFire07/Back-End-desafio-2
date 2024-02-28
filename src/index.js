@@ -20,7 +20,8 @@ app.use(require('./routes/clientRoutes.js'));
 app.use(require('./routes/offeringRoutes.js'));
 app.use(require('./routes/projectTypeRoutes.js'));
 app.use(require('./routes/contactRoutes.js'));
-app.use(require('./routes/industryRoutes.js')); 
+app.use(require('./routes/industryRoutes.js'));
+app.use(require('./routes/successCaseRoutes.js'));
 
 
 //Iniciando el servidor
