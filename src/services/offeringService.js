@@ -11,7 +11,7 @@ async function getAll() {
     });
     return offerings;
   } catch (error) {
-    throw new Error('Error al obtener el offering desde la Base de Datos.');
+    throw new Error('Error al obtener todas las offering desde la base de datos.');
   }
 }
 

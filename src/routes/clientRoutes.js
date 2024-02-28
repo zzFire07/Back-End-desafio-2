@@ -5,13 +5,13 @@ const router = Router();
 const ClientController = require('../controllers/clientController');
 
 // Ruta para obtener un cliente por su ID
-router.get('/Client/getById/:clientId', ClientController.getByIdClient);
+router.get('/client/getById/:clientId', ClientController.getByIdClient);
 
 // Ruta para mostrar todos los clientes
-router.get('/Client/getAll', ClientController.getAllClients);
+router.get('/client/getAll', ClientController.getAllClients);
 
 // Ruta para crear un cliente
-router.post('/Client/new', ClientController.createClient);
+router.post('/client/create', ClientController.createClient);
 
 
 module.exports = router;

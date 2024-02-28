@@ -13,7 +13,7 @@ async function createClient(data) {
 
     return newClient;
   } catch (error) {
-    throw new Error(error);
+    throw new Error('Error al crear el cliente en la base de datos');
   }
 }
 
@@ -24,7 +24,7 @@ async function getByIdClient(clientId) {
     
     return getClient;
   } catch (error) {
-    throw new Error('Error al obtener el cliente desde la base de datos');
+    throw new Error('Error al obtener el cliente con id ' + clientId + ' desde la base de datos');
   }
 }
 
@@ -36,7 +36,7 @@ async function getAllClients() {
       });
       return allClients;
     } catch (error) {
-      throw new Error(error);
+      throw new Error('Error al obtener todos los clientes desde la base de datos');
     }
   }
 
