@@ -1,5 +1,6 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../config/database.js');
+const SuccessCaseModel = require('./successCaseModel.js');
 
 class ClientModel extends Model {}
 
@@ -28,6 +29,6 @@ ClientModel.init(
   }
 );
 
-
+ClientModel.hasMany(SuccessCaseModel);
 
 module.exports = ClientModel;

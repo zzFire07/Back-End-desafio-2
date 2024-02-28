@@ -1,5 +1,14 @@
 const { Op } = require('sequelize');
+const CaseDetailsModel = require('../models/caseDetailsModel.js');
+const ChallengesModel = require('../models/challengesModel.js');
+const ClientModel = require('../models/clientModel.js');
+const ContactModel = require('../models/contactModel.js');
+const ImprovementsModel = require('../models/improvementsModel.js');
+const IndustryModel = require('../models/industryModel.js');
+const OfferingModel = require('../models/offeringModel.js');
+const ProjectTypeModel = require('../models/projectTypeModel.js');
 const SuccessCaseModel = require('../models/successCaseModel.js');
+const TechnologiesModel = require('../models/technologiesModel.js');
 
 async function getByFilter(data) {
   try {
@@ -37,7 +46,8 @@ async function getByFilter(data) {
     
     // Query a la BD con los filtros.
     const cases = SuccessCaseModel.findAll({
-      where: {...whereFilter}
+      where: {...whereFilter},
+      include: [ClientModel, IndustryModel, ProjectTypeModel, ContactModel, OfferingModel, CaseDetailsModel, TechnologiesModel, ImprovementsModel, ChallengesModel]
     });
     return cases;
   } catch (error) {
