@@ -11,12 +11,15 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST, // Cambiado a nombre del servicio
     dialect: "postgres", // Indica que estamos utilizando PostgreSQL
-    pool: {
-      max: 9,
-      min: 0,
-      idle: 10000,
-    },
+    logging: false, // Desactiva los logs de Sequelize
     port: process.env.DB_PORT, // Puerto por defecto de PostgreSQL en el contenedor
+    define: {
+      // No agregues atributos timestamps por defecto
+      timestamps: false,
+      // Evita que Sequelize modifique el nombre de las columnas a camelCase
+      underscored: true,
+    },
+    omitNull: true,
   }
 );
 
