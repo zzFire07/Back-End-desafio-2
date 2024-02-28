@@ -7,13 +7,13 @@ async function getByFilter(data) {
 
     // Plantilla del Where a utilizar en el query.
     const whereFilter = {
-      client: {
+      client_id: {
         [Op.eq]: client,
       },
-      industry: {
+      industry_id: {
         [Op.eq]: industry,
       },
-      projectType: {
+      projectType_id: {
         [Op.eq]: projectType,
       },
       startDate: {
@@ -22,18 +22,18 @@ async function getByFilter(data) {
       finishDate: {
         [Op.lt]: finishDate,
       },
-      contact: {
+      contact_id: {
         [Op.eq]: contact,
       },
     };
 
     // Chequeo de las variables del filtro. Esto es porque Sequelize las compararía buscando un Null.
-    if (client == null) { delete whereFilter.client };
-    if (industry == null) { delete whereFilter.industry };
-    if (projectType == null) { delete whereFilter.projectType };
+    if (client == null) { delete whereFilter.client_id };
+    if (industry == null) { delete whereFilter.industry_id };
+    if (projectType == null) { delete whereFilter.projectType_id };
     if (startDate == null) { delete whereFilter.startDate };
     if (finishDate == null) { delete whereFilter.finishDate };
-    if (contact == null) { delete whereFilter.contact };
+    if (contact == null) { delete whereFilter.contact_id };
     
     // Query a la BD con los filtros.
     const cases = SuccessCaseModel.findAll({
