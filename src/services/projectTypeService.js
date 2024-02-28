@@ -6,7 +6,7 @@ async function getAllProjectType() {
         const projectType = await ProjectTypeModel.findAll();
         return projectType;
     } catch (error) {
-        throw new Error('Error al obtener el tipo de proyecto desde la base de datos');
+        throw new Error('Error al obtener todos los tipos de proyecto desde la base de datos');
     }
 }
 

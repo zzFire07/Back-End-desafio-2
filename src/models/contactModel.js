@@ -5,6 +5,7 @@ class ContactModel extends Model { }
 
 ContactModel.init(
     {
+        // Atributos del contacto (el id lo genera Postgres)
         name: {
             type: DataTypes.STRING,
         },
@@ -17,8 +18,8 @@ ContactModel.init(
     },
     {
         sequelize,
-        modelName: 'Contact',
-        tableName: 'contact',
+        modelName: 'Contact', // Nombre del modelo
+        tableName: 'contact', // Nombre de la tabla en la base de datos
     }
 );
 

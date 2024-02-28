@@ -1,18 +1,18 @@
 const express = require ('express');
-const app = express();
-const morgan = require('morgan');
-const cors = require('cors');
+const app = express(); // Crear un servidor express
+const morgan = require('morgan'); // Middleware para ver las peticiones que llegan al servidor
+const cors = require('cors'); // Middleware para permitir peticiones desde otros servidores
 
 
 //Configuraciones
-app.set('port', process.env.PORT || 3000);
-app.set('json spaces', 2)
+app.set('port', process.env.PORT || 3000); // Configurar el puerto del servidor
+app.set('json spaces', 2) // Configurar la cantidad de espacios en el formato JSON
  
 //Middleware
-app.use(morgan('dev'));
-app.use(cors());
+app.use(morgan('dev')); 
+app.use(cors()); 
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(express.json()); 
  
 
 //Routes
@@ -25,5 +25,5 @@ app.use(require('./routes/industryRoutes.js'));
 
 //Iniciando el servidor
 app.listen(app.get('port'), () => {
-    console.log(`Server listening on port ${app.get('port')}`);
+    console.log(`Server listening on port ${app.get('port')}`); 
 });

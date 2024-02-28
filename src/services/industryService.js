@@ -8,7 +8,7 @@ async function getAll() {
         });
         return allIndustries;
     } catch (error) {
-        throw new Error('Error al obtener la industria desde la base de datos');
+        throw new Error('Error al obtener todas las industrias desde la base de datos');
     }
 }
 
