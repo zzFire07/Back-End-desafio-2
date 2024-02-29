@@ -55,7 +55,25 @@ async function getByFilter(data) {
   };
 };
 
+async function create(data) {
+  try {
+    const { title, industry, startDate, finishDate, teamSize} = data;
+    const newSuccessCase = SuccessCaseModel.create(
+      {
+        title, industry, startDate, finishDate, teamSize,
+      },
+      {
+        include: [IndustryModel]
+      }
+    );
+    return newSuccessCase;
+  } catch (error) {
+    throw new Error(error);
+  };
+}
+
 module.exports = {
   getByFilter,
+  create,
 };
 

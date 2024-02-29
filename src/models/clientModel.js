@@ -20,7 +20,6 @@ ClientModel.init(
       type: DataTypes.INTEGER,
       primaryKey: true
     },
-
   },
   {
     sequelize,
@@ -28,7 +27,5 @@ ClientModel.init(
     tableName: 'client', // Nombre de la tabla en la base de datos
   }
 );
-
-ClientModel.hasMany(SuccessCaseModel);
 
 module.exports = ClientModel;

@@ -11,7 +11,7 @@ const SuccessCaseController = require('../controllers/successCaseController');
 router.get('/SuccessCase/getByFilter', SuccessCaseController.getByFilter);
 
 // Ruta para crear un caso.
-//router.post('/SuccessCase/create', SuccessCaseController.create);
+router.post('/SuccessCase/create', SuccessCaseController.create);
 
 
 module.exports = router;
