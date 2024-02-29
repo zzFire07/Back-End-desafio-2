@@ -11,7 +11,7 @@ async function getAll() {
     });
     return offerings;
   } catch (error) {
-    throw new Error('Error al obtener el tipo de comida desde la base de datos');
+    throw new Error('Error al obtener todas las offering desde la base de datos.');
   }
 }
 
