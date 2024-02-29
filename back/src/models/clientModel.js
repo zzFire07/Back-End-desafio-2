@@ -1,5 +1,5 @@
-const { DataTypes, Model } = require('sequelize');
-const sequelize = require('../config/database.js');
+const { DataTypes, Model } = require("sequelize");
+const sequelize = require("../config/database.js");
 
 class ClientModel extends Model {}
 
@@ -9,7 +9,7 @@ ClientModel.init(
     name: {
       type: DataTypes.STRING,
     },
-    surname: {
+    surName: {
       type: DataTypes.STRING,
     },
     email: {
@@ -17,17 +17,14 @@ ClientModel.init(
     },
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
     },
-
   },
   {
     sequelize,
-    modelName: 'client', // Nombre del modelo
-    tableName: 'client', // Nombre de la tabla en la base de datos
+    modelName: "client", // Nombre del modelo
+    tableName: "client", // Nombre de la tabla en la base de datos
   }
 );
-
-
 
 module.exports = ClientModel;
