@@ -1,5 +1,5 @@
-const {DataTypes, Model} = require('sequelize');
-const sequelize = require('../config/database');
+const { DataTypes, Model } = require("sequelize");
+const sequelize = require("../config/database");
 
 class ImprovementsModel extends Model {}
 
@@ -18,8 +18,8 @@ ImprovementsModel.init(
   },
   {
     sequelize,
-    modelName: 'Improvements', // Nombre del modelo
-    tableName: 'improvements', // Nombre de la tabla en la base de datos
+    modelName: "Improvements", // Nombre del modelo
+    tableName: "improvements", // Nombre de la tabla en la base de datos
   }
 );
 
