@@ -45,7 +45,7 @@ async function getByFilter(data) {
     if (contact == null) { delete whereFilter.contact_id };
     
     // Query a la BD con los filtros.
-    const cases = SuccessCaseModel.findAll({
+    const cases = await SuccessCaseModel.findAll({
       where: {...whereFilter},
       include: [
         'client', 'industry', 'projectType', 'contact', 'offering',
@@ -56,6 +56,24 @@ async function getByFilter(data) {
       attributes: ['id', 'title', 'startDate', 'finishDate', 'teamSize'],
     });
     return cases;
+  } catch (error) {
+    throw new Error(error);
+  };
+};
+
+async function getById(successCaseId) {
+  try {
+    // Query a la BD con los filtros.
+    const successCase = await SuccessCaseModel.findByPk(successCaseId, {
+      include: [
+        'client', 'industry', 'projectType', 'contact', 'offering',
+        'caseDetails', 'technologies', 'improvements', 'challenges'
+      ],
+      // Se especifican Attributes para evitar mostrar las Foreign Key de las relaciones,
+      // pues se trae el objeto entero.
+      attributes: ['id', 'title', 'startDate', 'finishDate', 'teamSize'],
+    });
+    return successCase;
   } catch (error) {
     throw new Error(error);
   };
@@ -80,6 +98,7 @@ async function create(data) {
 
 module.exports = {
   getByFilter,
+  getById,
   create,
 };
 

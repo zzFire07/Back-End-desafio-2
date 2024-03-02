@@ -4,7 +4,6 @@ const SuccessCaseService = require('../services/successCaseService.js');
 // Si está vacío realiza un GetAll.
 async function getByFilter(req, res) {
   try {
-    console.log(req.body);
     const {client, industry, projectType, startDate, finishDate, contact} = req.body;
     
     const cases = await SuccessCaseService.getByFilter({
@@ -26,7 +25,7 @@ async function getByFilter(req, res) {
 async function getById(req, res) {
   try {
     console.log(req.body);
-    const {id} = req.body;
+    const id = req.params.successCaseId;
     if (id == null || id < 1) {
       return res.status(400).json({ message: 'El valor ingresado es erróneo o inexistente.' });
     };
