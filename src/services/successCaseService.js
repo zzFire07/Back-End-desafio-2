@@ -47,7 +47,13 @@ async function getByFilter(data) {
     // Query a la BD con los filtros.
     const cases = SuccessCaseModel.findAll({
       where: {...whereFilter},
-      include: [ClientModel, IndustryModel, ProjectTypeModel, ContactModel, OfferingModel, CaseDetailsModel, TechnologiesModel, ImprovementsModel, ChallengesModel]
+      include: [
+        'client', 'industry', 'projectType', 'contact', 'offering',
+        'caseDetails', 'technologies', 'improvements', 'challenges'
+      ],
+      // Se especifican Attributes para evitar mostrar las Foreign Key de las relaciones,
+      // pues se trae el objeto entero.
+      attributes: ['id', 'title', 'startDate', 'finishDate', 'teamSize'],
     });
     return cases;
   } catch (error) {

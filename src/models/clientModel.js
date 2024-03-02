@@ -7,6 +7,10 @@ class ClientModel extends Model {}
 ClientModel.init(
   {
     // Atributos de cliente (el id lo genera Postgres)
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
     name: {
       type: DataTypes.STRING,
     },
@@ -15,10 +19,6 @@ ClientModel.init(
     },
     email: {
       type: DataTypes.STRING,
-    },
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true
     },
   },
   {
