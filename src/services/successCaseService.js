@@ -1,5 +1,14 @@
 const { Op } = require('sequelize');
+const CaseDetailsModel = require('../models/caseDetailsModel.js');
+const ChallengesModel = require('../models/challengesModel.js');
+const ClientModel = require('../models/clientModel.js');
+const ContactModel = require('../models/contactModel.js');
+const ImprovementsModel = require('../models/improvementsModel.js');
+const IndustryModel = require('../models/industryModel.js');
+const OfferingModel = require('../models/offeringModel.js');
+const ProjectTypeModel = require('../models/projectTypeModel.js');
 const SuccessCaseModel = require('../models/successCaseModel.js');
+const TechnologiesModel = require('../models/technologiesModel.js');
 
 async function getByFilter(data) {
   try {
@@ -36,8 +45,15 @@ async function getByFilter(data) {
     if (contact == null) { delete whereFilter.contact_id };
     
     // Query a la BD con los filtros.
-    const cases = SuccessCaseModel.findAll({
-      where: {...whereFilter}
+    const cases = await SuccessCaseModel.findAll({
+      where: {...whereFilter},
+      include: [
+        'client', 'industry', 'projectType', 'contact', 'offering',
+        'caseDetails', 'technologies', 'improvements', 'challenges'
+      ],
+      // Se especifican Attributes para evitar mostrar las Foreign Key de las relaciones,
+      // pues se trae el objeto entero.
+      attributes: ['id', 'title', 'startDate', 'finishDate', 'teamSize'],
     });
     return cases;
   } catch (error) {
@@ -45,7 +61,44 @@ async function getByFilter(data) {
   };
 };
 
+async function getById(successCaseId) {
+  try {
+    // Query a la BD con los filtros.
+    const successCase = await SuccessCaseModel.findByPk(successCaseId, {
+      include: [
+        'client', 'industry', 'projectType', 'contact', 'offering',
+        'caseDetails', 'technologies', 'improvements', 'challenges'
+      ],
+      // Se especifican Attributes para evitar mostrar las Foreign Key de las relaciones,
+      // pues se trae el objeto entero.
+      attributes: ['id', 'title', 'startDate', 'finishDate', 'teamSize'],
+    });
+    return successCase;
+  } catch (error) {
+    throw new Error(error);
+  };
+};
+
+async function create(data) {
+  try {
+    const { title, industry, startDate, finishDate, teamSize} = data;
+    const newSuccessCase = SuccessCaseModel.create(
+      {
+        title, industry, startDate, finishDate, teamSize,
+      },
+      {
+        include: [IndustryModel]
+      }
+    );
+    return newSuccessCase;
+  } catch (error) {
+    throw new Error(error);
+  };
+}
+
 module.exports = {
   getByFilter,
+  getById,
+  create,
 };
 

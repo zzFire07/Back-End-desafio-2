@@ -24,6 +24,9 @@ app.use(require('./routes/industryRoutes.js'));
 app.use(require('./routes/successCaseRoutes.js'));
 
 
+require('./config/asociations.js');
+
+
 //Iniciando el servidor
 app.listen(app.get('port'), () => {
     console.log(`Server listening on port ${app.get('port')}`); 
