@@ -1,5 +1,5 @@
 const { DataTypes, Model } = require('sequelize');
-const sequelize = require('../config/database.js');
+const sequelize = require('../config/database.js'); 
 
 class IndustryModel extends Model { }
 
@@ -16,6 +16,7 @@ IndustryModel.init(
         tableName: 'industry', // Nombre de la tabla en la base de datos
     }
 );
+ 
 
 module.exports = IndustryModel;
 

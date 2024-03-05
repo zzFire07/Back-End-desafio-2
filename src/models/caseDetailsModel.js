@@ -1,26 +1,29 @@
 const {DataTypes, Model} = require('sequelize');
 const sequelize = require('../config/database');
+const SuccessCaseModel = require('./successCaseModel.js');
 
 class CaseDetailsModel extends Model {}
 
 CaseDetailsModel.init(
   {
-    // Atributos del Detalle (El id está dado por Postgre)
-    image: {
+    
+    image_detail: {
       type: DataTypes.STRING,
     },
-    video: {
+    video_detail: {
       type: DataTypes.STRING,
     },
-    text: {
+    text_detail: {
       type: DataTypes.STRING,
-    },
+    } 
   },
   {
     sequelize,
-    modelName: 'CaseDetails', // Nombre del modelo
-    tableName: 'case_details', // Nombre de la tabla en la base de datos
+    modelName: 'CaseDetail', // Nombre del modelo
+    tableName: 'case_detail', // Nombre de la tabla en la base de datos
   }
 );
+
+
 
 module.exports = CaseDetailsModel;

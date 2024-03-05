@@ -34,12 +34,12 @@ async function getByIdClient(req, res) {
 // Controlador para crear un cliente
 async function createClient(req, res) {
     try {
-      console.log(req.body);
-      const {name, surName, email} = req.body;
+      
+      const {name, surname, email } = req.body;
   
       // Llama al servicio para crear el cliente
       const newClient = await ClientService.createClient({
-        name, surName, email
+        name, surname, email
       });
   
       if (newClient) {

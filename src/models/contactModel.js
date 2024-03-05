@@ -14,7 +14,7 @@ ContactModel.init(
         },
         email: {
             type: DataTypes.STRING,
-        },
+        }
     },
     {
         sequelize,

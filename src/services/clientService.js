@@ -4,11 +4,11 @@ const ClientModel = require('../models/clientModel.js');
 // Servicio para crear un cliente
 async function createClient(data) {
   try {
-    const { name, surName, email } = data;
+    const { name, surname, email} = data;
 
     // Crea el cliente en la base de datos utilizando el modelo
     const newClient = await ClientModel.create({
-      name, surName, email
+      name, surname, email
     });
 
     return newClient;
@@ -32,7 +32,7 @@ async function getByIdClient(clientId) {
 async function getAllClients() {
     try {
       const allClients = await ClientModel.findAll({
-        order: [['id', 'ASC']], // Ordena por la columna 'id' de manera ascendente (de menor a mayor)
+        order: [['name', 'ASC']], // Ordena por la columna 'id' de manera ascendente (de menor a mayor)
       });
       return allClients;
     } catch (error) {
