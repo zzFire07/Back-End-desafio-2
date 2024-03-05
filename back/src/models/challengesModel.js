@@ -6,20 +6,20 @@ class ChallengesModel extends Model {}
 ChallengesModel.init(
   {
     // Atributos del Desafío (El id está dado por Postgre)
-    image: {
+    image_ch: {
       type: DataTypes.STRING,
     },
-    video: {
+    video_ch: {
       type: DataTypes.STRING,
     },
-    text: {
+    text_ch: {
       type: DataTypes.STRING,
     },
   },
   {
     sequelize,
     modelName: 'Challenges', // Nombre del modelo
-    tableName: 'challenges', // Nombre de la tabla en la base de datos
+    tableName: 'challenge', // Nombre de la tabla en la base de datos
   }
 );
 
