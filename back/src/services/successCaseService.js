@@ -15,17 +15,12 @@ const  ChallengesModel = require('../models/challengesModel.js');
 async function createSuccessCase(data) {
   
   try {
-    if (!data || typeof data !== 'object') {
-      throw new Error('Se esperaba un objeto con los datos del caso de éxito.');
-    }    
  
     const { title, startdate, finishdate, teamsize, ispublic, industryid, clientid, projecttypeid, contactid , offeringid, casedetail, technology, 
       challenge, improvement} = data;
 
-    // Verifica que los campos requeridos estén presentes
-    if (!title || !startdate || !finishdate || !teamsize || !ispublic || !industryid || !clientid  || !projecttypeid || !contactid || !casedetail || !technology
-      || !challenge || !improvement) {
-      throw new Error('Faltan datos obligatorios para crear el caso de éxito.');
+    if (!title || !startdate || !finishdate || !teamsize || !industryid || !clientid || !projecttypeid || !contactid || !offeringid || !casedetail || !technology || !challenge || !improvement) {
+      throw new Error('Faltan datos para crear el caso de éxito.');
     }
     
     // Cargo  Success Case 

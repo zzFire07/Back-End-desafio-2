@@ -23,16 +23,9 @@ CREATE TABLE offering (
 );
 INSERT INTO offering (name, description)
 VALUES
-('Offering 1', 'Description 1'),
-('Offering 2', 'Description 2'),
-('Offering 3', 'Description 3'),
-('Offering 4', 'Description 4'),
-('Offering 5', 'Description 5'),
-('Offering 6', 'Description 6'),
-('Offering 7', 'Description 7'),
-('Offering 8', 'Description 8'),
-('Offering 9', 'Description 9'),
-('Offering 10', 'Description 10');
+('Modernization', 'Modernize a software to improve performance'),
+('Restructuring', 'Restructure a software to change technologies');
+
 
 CREATE TABLE project_type (
     id SERIAL PRIMARY KEY,
@@ -55,9 +48,18 @@ VALUES
 CREATE TABLE client (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-	surname VARCHAR(255),
-	email VARCHAR(255) 
+	  surname VARCHAR(255),
+    email VARCHAR(255) 
 );
+
+INSERT INTO client (name, email)
+VALUES
+('Google', 'Avurish@Google.com'),
+('Electronic Arts', 'MeganF@EA.com'),
+('NatGeo', 'Julieta@NatGeo.com'),
+('Southwest Airlines', 'AlanJus@SWAirlines.com'),
+('Coca Cola', 'ImirAhdul@Pepsico.com'),
+('IBM', 'Sebastian@IBM.com');
 
 CREATE TABLE contact (
     id SERIAL PRIMARY KEY,
@@ -85,6 +87,12 @@ CREATE TABLE case_detail (
   text_detail TEXT
 );
 
+INSERT INTO case_detail (image_detail, video_detail, text_detail)
+VALUES
+('img.jpg', 'vid.mp4', 'This is a success case of EA. In this case the team elaborated a system that repaired (...)'),
+('img.png', 'vid.mp4', 'This is a success case of NatGeo. In this case after conclude that the system was unestable (...)'),
+('img.jpeg', 'vid.mp4', 'This is a success case of IBM. In this case the team worked to learn all the documentation about (...)');
+
 CREATE TABLE technology (
   id SERIAL PRIMARY KEY,
   image_tech TEXT,
@@ -92,12 +100,24 @@ CREATE TABLE technology (
   text_tech TEXT
 );
 
+INSERT INTO technology (image_tech, video_tech, text_tech)
+VALUES
+('img.jpg', 'vid.mp4', 'The technology used in this case was Java, the team used the latest version of Java to develop (...)'),
+('img.png', 'vid.mp4', 'The technology used in this case was Python, the team used the latest version of Python to develop (...)'),
+('img.jpeg', 'vid.mp4', 'The technology used in this case was C#, the team used the latest version of C# to develop (...)');
+
 CREATE TABLE improvement (
   id SERIAL PRIMARY KEY,
   image_imp TEXT,
   video_imp TEXT,
   text_imp TEXT
 );
+
+INSERT INTO improvement (image_imp, video_imp, text_imp)
+VALUES
+('img.jpg', 'vid.mp4', 'The improvement in this case was the performance of the system, the team worked to improve the performance (...)'),
+('img.png', 'vid.mp4', 'The improvement in this case was the stability of the system, the team worked to improve the stability (...)'),
+('img.jpeg', 'vid.mp4', 'The improvement in this case was the documentation of the system, the team worked to improve the documentation (...)');
  
 
  CREATE TABLE challenge (
@@ -106,6 +126,12 @@ CREATE TABLE improvement (
   video_ch TEXT,
   text_ch TEXT
 );
+
+INSERT INTO challenge (image_ch, video_ch, text_ch)
+VALUES
+('img.jpg', 'vid.mp4', 'The challenge in this case was the project manager because he ask us every 10 minutes if we (...)'),
+('img.png', 'vid.mp4', 'The challenge in this case was the testing team because they find all the bugs and the develop team cannot (...)'),
+('img.jpeg', 'vid.mp4', 'The challenge in this case was the documentation of the system, the last documentation was the brain of the Team Lead (...)');
 
 	CREATE TABLE successcase (
 		id SERIAL PRIMARY KEY,
@@ -133,3 +159,9 @@ CREATE TABLE improvement (
 		FOREIGN KEY (challengeid) REFERENCES challenge(id),
 		FOREIGN KEY (improvementid) REFERENCES improvement(id)	
 		);
+
+INSERT INTO successcase (title, startdate, finishdate, ispublic, teamsize, industryid, clientid, contactid, offeringid, projecttypeid, technologyid, challengeid, improvementid, casedetailsid)
+VALUES
+('Success of EA', '2023-09-01', '2023-11-15', true, 7, 10, 2, 1, 13, 3, 1, 1, 1, 1),
+('Miracle in NatGeo', '2023-11-06', '2024-04-08', true, 11, 5, 3, 2, 14, 4, 2, 2, 2, 2),
+('Unbelievably success in IBM', '2004-02-28', '2005-01-08', true, 3, 5, 6, 3, 13, 8, 3, 3, 3, 3);
