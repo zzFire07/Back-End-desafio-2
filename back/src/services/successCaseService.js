@@ -19,18 +19,6 @@ async function createSuccessCase(data) {
     const { title, startdate, finishdate, teamsize, ispublic, industryid, clientid, projecttypeid, contactid , offeringid, casedetail, technology, 
       challenge, improvement} = data;
 
-    // Verifica que los campos requeridos estén presentes
-    if (title == null || title == '') {
-      throw new Error('Falta el título del caso de éxito.');
-    } else if (startdate == null || startdate == '') {
-      throw new Error('Falta la fecha de inicio del caso de éxito.');
-    } else if (finishdate == null || finishdate == '') {
-      throw new Error('Falta la fecha de finalización del caso de éxito.');
-    } else if (teamsize == null || teamsize == '') {
-      throw new Error('Falta el tamaño del equipo del caso de éxito.');
-    } else if (ispublic == null || ispublic == '') {
-      throw new Error('Falta el estado de publicación del caso de éxito.');
-    }
 
 
     
