@@ -18,6 +18,10 @@ async function createSuccessCase(data) {
  
     const { title, startdate, finishdate, teamsize, ispublic, industryid, clientid, projecttypeid, contactid , offeringid, casedetail, technology, 
       challenge, improvement} = data;
+
+    if (!title || !startdate || !finishdate || !teamsize || !industryid || !clientid || !projecttypeid || !contactid || !offeringid || !casedetail || !technology || !challenge || !improvement) {
+      throw new Error('Faltan datos para crear el caso de éxito.');
+    }
     
     // Cargo  Success Case 
     const { image_detail, video_detail, text_detail} = casedetail;
