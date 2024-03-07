@@ -19,8 +19,9 @@ async function createSuccessCase(data) {
     const { title, startdate, finishdate, teamsize, ispublic, industryid, clientid, projecttypeid, contactid , offeringid, casedetail, technology, 
       challenge, improvement} = data;
 
-
-
+      if (tittle == null || startdate == null || finishdate == null || teamsize == null || industryid == null || clientid == null || projecttypeid == null || contactid == null || offeringid == null || casedetail == null || technology == null || challenge == null || improvement == null) {
+        throw new Error('Faltan datos obligatorios.');
+      }
     
     // Cargo  Success Case 
     const { image_detail, video_detail, text_detail} = casedetail;
