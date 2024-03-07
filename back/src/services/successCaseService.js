@@ -20,10 +20,50 @@ async function createSuccessCase(data) {
       challenge, improvement} = data;
 
     // Verifica que los campos requeridos estén presentes
-    if (!title || !startdate || !finishdate || !teamsize || !ispublic || !industryid || !clientid  || !projecttypeid || !contactid || !casedetail || !technology
-      || !challenge || !improvement) {
-      throw new Error('Faltan datos obligatorios para crear el caso de éxito.');
+    if (!title) {
+      throw new Error('Falta el título del caso de éxito.');
     }
+    if (!startdate) {
+      throw new Error('Falta la fecha de inicio del proyecto.');
+    }
+    if (!finishdate) {
+      throw new Error('Falta la fecha de finalización del proyecto.');
+    }
+    if (!teamsize) {
+      throw new Error('Falta el tamaño del equipo del proyecto.');
+    }
+    if (!ispublic) {
+      throw new Error('Falta el estado de publicación del caso de éxito.');
+    }
+    if (!industryid) {
+      throw new Error('Falta la industria del caso de éxito.');
+    }
+    if (!clientid) {
+      throw new Error('Falta el cliente del caso de éxito.');
+    }
+    if (!projecttypeid) {
+      throw new Error('Falta el tipo de proyecto del caso de éxito.');
+    }
+    if (!contactid) {
+      throw new Error('Falta el contacto del caso de éxito.');
+    }
+    if (!offeringid) {
+      throw new Error('Falta la oferta del caso de éxito.');
+    }
+    if (!casedetail) {
+      throw new Error('Falta el detalle del caso de éxito.');
+    }
+    if (!technology) {
+      throw new Error('Falta la tecnología del caso de éxito.');
+    }
+    if (!challenge) {
+      throw new Error('Falta el desafío del caso de éxito.');
+    }
+    if (!improvement) {
+      throw new Error('Falta la mejora del caso de éxito.');
+    }
+    
+
     
     // Cargo  Success Case 
     const { image_detail, video_detail, text_detail} = casedetail;
